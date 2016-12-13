@@ -1,0 +1,1093 @@
+/* 
+    Document   : swb_portal
+    Created on : 3/12/2008, 09:18:39 PM
+    Author     : Administrador
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+@import "../images/portlet/portlet.css";
+
+/* Gallery Styles */
+#motioncontainer {
+/*margin:0 auto;  Uncomment this line if you wish to center the gallery on page */
+width: 550px; /* Set to gallery width, in px or percentage */
+height: 130px; /* Set to gallery height */
+}
+#motioncontainer a img {
+border: 1px solid #cccccc; /* Set image border color */
+}
+#motioncontainer a:hover img {
+border: 1px solid navy; /* Set image border hover color */
+}
+#statusdiv {
+background-color: #ffff99;
+border: 1px solid gray;
+padding: 2px;
+position: absolute; /* Stop Editing Gallery Styles */
+left: 300px;
+visibility: visible;
+}
+#motioncontainer a:hover {
+color: #ff0000; /* Dummy definition to overcome IE bug */
+}
+/* End Gallery Styles */
+
+
+/* CSS Document */
+#WBWikiTextbox{
+    width: 100%;
+    height: 300px;
+}
+
+/*------------------- SlideShow ---------*/
+.swb-slideshow {width:945px; height:325px; position: relative;}
+.swb-slideshow .title {position:relative; top:-420px; left: 20px; width:500px; text-decoration:none; text-align:left; font-family:Verdana, Arial,Helvetica, sans-serif; font-size:26px; font-weight:bold; color:#ffffff; outline:none; }
+.swb-slideshow .desc {position:relative; top:-420px; left: 20px; width:600px; text-decoration:none; text-align:left; font-family:Verdana, Arial,Helvetica, sans-serif; font-size:16px; font-weight:bold; color:#ffffff; outline:none; }
+.crwlr_img {border:none; outline:none; }
+/*------------------- SlideShow ---------*/
+
+/*------------------- Ranking ---------*/
+.swb-rate ul {margin:0; padding:0}
+.swb-rate li {float:left; list-style:none}
+.swb-rate img {border:0}
+.swb-rate p {clear:both}
+.swb-rate a {outline:none}
+/*------------------- Ranking ---------*/
+
+/*------------------- Menu ---------*/
+.swb-menu{ list-style: none; width:200px; font-size:1em; border-collapse:collapse; font-family:Geneva, Arial, Helvetica, sans-serif;}
+.swb-menu-parent{display:block; color:#025788; text-decoration:none; padding:5px; font-size:1em; font-weight:bold; background:#eee;}
+.swb-menu-active{background:#367498; display:block; color:#fff; text-decoration:none; padding:6px 6px 6px 15px; font-size:.9em;border-top:1px solid #205473;}
+.swb-menu-current{background:#265a79; display:block; color:#fff; text-decoration:none; padding:10px 10px 10px 15px; font-weight:bold; font-size:.9em;border-top:1px solid #205473;}
+.swb-menu-child a{background:#b6d0df; display:block; color:#fff; text-decoration:none; padding:8px; padding-left:20px; font-size:.8em; color:#333;border-top:1px solid #306A8C;}
+/*------------------- Menu ---------*/
+
+/*------------------- Poll (Encuesta de opinión) ---------*/
+.swb-poll {width: 13em; border:#336699 solid .06em; font-family:Arial; font-size:1em; padding:0; margin:0; }
+.showhide {position:relative}
+.showhide:hover .holderEncuesta {display:block}
+.holderEncuesta {position:absolute; width:300px}
+.arrowEncuesta {float:left; width:7px}
+.resultadosEncuesta * {margin:0}
+.resultadosEncuesta {width:250px; background:#ededed; padding:10px; float:right}
+.entradaEncuesta {float:left; width:85px; height:15px; display:block;}
+.porcentajeHolder {background: #fff; border:solid 1px #999; width:160px; height:15px; float:right}
+.noVotos {clear:both; text-align:right; font-size:0.7em}
+.porcentaje {background:#093; height:15px}
+
+/*------------------- Promo ---------*/
+.swb-promo * {margin:0}
+.leftPromo .promoImage {width:auto; display:block; float:left; margin-right:10px}
+.rightPromo .promoImage {width:auto; display:block; float:right; margin-right:10px}
+.topPromo .promoImage {width:auto; display:block; float:none; text-align:center}
+.bottomPromo .promoImage {width:auto; display:block; float:none; text-align:center}
+.more {clear:both; text-align:center}
+.promoFoot {background:#999}
+.promoInfo_LeftAlign {float:right; width:70%}
+.promoInfo_RightAlign {float:left; width:70%}
+.swb-promo p {text-align: justify}
+.swb-promo h2 {text-align: center}
+
+
+
+
+
+
+
+
+
+/*------------------- Encuesta  ----*/
+.swb-poll-title {
+	background: url(bg_titulos.gif) #336699 repeat-x;
+	font-weight:bold;
+	margin:0;
+	padding:.2em 0 .2em 0;
+	color: #FFF;
+	font-size:.9em;
+	text-align: center;
+	text-transform: capitalize;
+}
+.swb-poll-quest {
+	font-size:0.8em;
+	font-weight: bold;
+	color: #336699;
+	text-align: center;
+	margin:0em; padding:0em;
+}
+.swb-poll ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+        color: #00CCCC;
+        font-size:0.8em;
+        font-weight: bold;
+}
+.swb-poll label{
+	margin-top:.3em;
+	display: block;
+	padding-left:1.25em;
+	font-size: 0.75em;
+	color:#336699;
+}
+.swb-poll-button {
+	font-size:.8em;
+	margin-top:1em;
+	text-transform:capitalize;
+}
+.swb-poll-link {
+	margin:.3em 0em .3em 0em;
+	text-align:center;
+	font-size: 0.75em;
+	color:#369;
+}
+.swb-poll-more {
+	margin:.3em 0em .3em 0em;
+	text-align:center;
+	font-size: 0.75em;
+	color:#369;
+}
+.swb-poll-warning {
+        margin-top:.3em;
+	display: block;
+	padding-left:1.25em;
+	font-size: 0.75em;
+	color:#FF6600;
+}
+.swb-poll-close {
+        margin-top:.3em;
+	display: block;
+	padding-left:1.25em;
+	font-size: 0.75em;
+	color:#FF6600;
+}
+.swb-poll-link a:link, .swb-poll-link a:visited{
+	color:#369;
+}
+.swb-poll-res {
+	text-align: center;
+}
+/* resultados en forma horizontal */
+.swb-poll-res {
+	border:#336699 solid .06em;
+	font-family:Arial;
+	font-size:1em;
+}
+.swb-poll-res h1 {
+	background: url(bg_titulos.gif) #336699 repeat-x;
+	margin: 0 0 0.63em 0;
+	padding: 0;
+	line-height:1.56em;
+	font-size:0.88em;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-align: center;
+	text-transform: capitalize;
+}
+.swb-poll-res caption {
+	font-size:0.8em;
+	font-weight: bold;
+	color: #336699;
+	text-align: center;
+	margin-bottom:10px;
+}
+.swb-poll-res table {
+	width:100%;
+}
+.swb-poll-res tr {
+	margin:10px 0px 10px 0px;
+}
+.swb-poll-res th {
+	display:none;
+}
+.swb-poll-res tfoot {
+	font-size:0.8em;
+	font-weight: bold;
+	color: #336699;
+	text-align: center;
+}
+.swb-poll-res span {
+}
+.swb-res-options-h {
+	width:20%;
+	font-size:12px;
+	color:#336699;
+	text-align:right;
+	font-weight:bold;
+}
+.swb-res-percent-h {
+	padding:7px 3px 7px 0px;
+}
+.swb-res-percent-si-h {
+	background: #6699CC;
+	font-size:12px;
+	text-align:right;
+	color: #003366;
+	height:20px;
+	width:30px;
+	padding-top:5px;
+}
+.swb-res-percent-no-h {
+	border:#336699 solid 1px;
+	background: #DBDBDB;
+}
+.swv-res-votes-h {
+	width:20%;
+	font-size:12px;
+	color:#336699;
+}
+/*------------------- Encuesta  ----*/
+
+/*------------------- Recomendar  ----*/
+#swb-recomendar {
+    width: 21.33em;
+    border:#336699 solid .05em;
+    font-family:Arial;
+    font-size:1em;
+}
+#swb-recomendar h1{
+    background-color: #336699;
+    margin: 0 0 0.63em 0;
+    padding: 0;
+    line-height:1.56em;
+    font-size:0.88em;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    text-transform: capitalize;
+}
+#swb-recomendar fieldset{
+    background-color: #336699;
+    margin-left:1em;
+    margin-right:1em;
+    margin-bottom:1em;
+    border:#336699 solid 0.06em;
+}
+#swb-recomendar legend{
+    background-color: #6699cc;
+    padding: .3em .6em .3em .6em;
+    margin-left:2em;
+    margin-bottom:0.5em;
+    font-size:.75em;
+    font-weight:bold;
+    color: #FFFFFF;
+    border:#336699 solid 0.06em;
+}
+#swb-recomendar table{
+    padding: .6em .6em .6em .6em;
+    margin-left:1.25em;
+}
+#swb-recomendar td{
+    vertical-align: top;
+}
+#swb-recomendar label{
+    font-size: 0.75em;
+    color:#336699;
+    float:right;
+}
+.swb-recomendar-text {
+    /* class en código para funcionar en IE y FFox*/
+    color:#336699;
+    width:15em;
+    float:left;
+}
+#swb-recomendar textarea{
+    width:16.7em;
+    height:4.7em;
+    color:#336699;
+    font-family:Arial;
+    font-size:0.75em;
+    float:left;
+}
+.swb-recomendar-boton {
+    /* class en código para funcionar en IE y FFox*/
+    background-color: #336699;
+    width:auto;
+    color:#FFFFFF;
+    margin: .3em 1.25em .3em 1.25em;
+    font-size:.75em;
+}
+#swb-recomendar p {
+    text-align:center;
+    font-size:.75em;
+}
+#swb-recomendar a {
+    color:#336699;
+}
+/*------------------- Recomendar  ----*/
+
+/*------------------- Comentarios  ----*/
+#swb-comentar {
+    width: 21.33em;
+    border:#336699 solid .05em;
+    font-family:Arial;
+    font-size:1em;
+}
+#swb-comentar h1{
+    background-color: #336699;
+    margin: 0 0 0.63em 0;
+    padding: 0;
+    line-height:1.56em;
+    font-size:0.88em;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    text-transform: capitalize;
+}
+#swb-comentar h2{
+    font-size:0.8em;
+    font-weight: bold;
+    color: #336699;
+    text-align: center;
+}
+#swb-comentar table{
+    padding: .6em .6em .6em .6em;
+    margin-left:1.25em;
+    font-size:.75em;
+    color:#336699;
+}
+#swb-comentar td{
+    vertical-align: top;
+}
+#swb-comentar label{
+    font-size: 0.75em;
+    color:#336699;
+    float:right;
+}
+#swb-comentar select{
+    height:1.6em;
+    font-size: 0.8em;
+    color:#336699;
+    float:left;
+}
+.swb-comentar-text {
+    /* class en código para funcionar en IE y FFox*/
+    color:#336699;
+    width:15em;
+    float:left;
+}
+#swb-comentar textarea{
+    width:16.7em;
+    height:4.7em;
+    color:#336699;
+    font-family:Arial;
+    font-size:0.75em;
+    float:left;
+}
+.swb-comentar-boton {
+    /* class en código para funcionar en IE y FFox*/
+    background-color: #336699;
+    width:auto;
+    color:#FFFFFF;
+    margin: .3em 1.25em .3em 1.25em;
+    font-size:.75em;
+}
+#swb-comentar p {
+    text-align:center;
+    font-size:.75em;
+    color:#336699;
+}
+#swb-comentar a {
+    color:#336699;
+}
+#swb-comentar fieldset{
+    background-color: #d6e7f8;
+    margin:1em 1em 1em 1em;
+    padding-bottom:.6em;
+    /*background: #d6e7f8 url(bg_fieldset.jpg) top repeat-x;*/
+    border:#336699 solid 0.06em;
+}
+#swb-comentar legend{
+    background-color: #6699cc;
+    padding: .3em .6em .3em .6em;
+    margin-left:2em;
+    margin-bottom:0.5em;
+    font-size:.75em;
+    font-weight:bold;
+    color: #FFFFFF;
+    border:#336699 solid 0.06em;
+}
+/*------------------- Comentarios  ----*/
+
+/*------------------- Comentarios semánticos  ----*/
+.swb-comentario-sem-lista{
+	font-family:Arial, Helvetica, sans-serif;
+}
+.swb-comentario-sem-lista h1 {
+	font-size:16px;
+	text-transform:capitalize;
+	padding:30px 0px 10px 10px;
+	margin-bottom:20px;
+	display:block;
+	border-top: dashed #efefef 1px;
+	border-bottom:solid #CCCCCC 1px;
+	color:#369;
+}
+.swb-comentario-sem-lista li {
+	list-style:none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#999;
+	margin-bottom:20px;
+	padding-bottom:10px;
+	border-bottom:solid #CCCCCC 1px;
+}
+.swb-comentario-sem-lista span {
+	font-size:15px;
+	font-weight:bold;
+	color:#369;
+	margin-right: 15px;
+}
+.swb-comentario-sem-lista p {
+	margin:0;
+	margin-top:5px;
+	font-size:12px;
+	color:#333333;
+	text-align:justify;
+}
+.swb-comentario-sem {
+	border:solid 1px #CCCCCC;
+	background: #F9F9F9;
+	font-family:Arial, Helvetica, sans-serif;
+	margin-left:40px;
+}
+.swb-comentario-sem * {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	margin:0px;
+	padding:0px;
+	color:#333333;
+}
+.swb-comentario-sem h2 {
+	font-size:14px;
+	padding:5px 0px 5px 10px;
+	margin-bottom:10px;
+	display:block;
+	color:#369;
+	background: #EEE;
+}
+.swb-comentario-sem label {
+	width:160px;
+	text-align:right;
+	border:solid gray 0px;
+	display:block;
+	float:left;
+	margin-right:10px;
+	padding:2px;
+	font-size:12px;
+}
+.swb-comentario-sem input {
+	width:220px;
+	border:#369 solid 1px;
+	padding:2px;
+}
+.swb-comentario-sem textarea {
+	width:224px;
+	height:100px;
+	border:#369 solid 1px;
+	font-size:12px;
+}
+.swb-comentario-sem-nombre, .swb-comentario-sem-correo, .swb-comentario-sem-comenta, .swb-comentario-sem-captcha, .swb-comentario-sem-imagen, .swb-comentario-sem-boton {
+	display:table;
+	width:400px;
+	padding:6px 0px 6px 0px;
+	margin:0px;
+	border:dotted red 0px;        
+}
+.swb-comentario-sem-captcha input{
+	width:220px;
+}
+.swb-comentario-sem-boton{
+	text-align:right;
+}
+
+.swb-comentario-sem-imagen{
+	text-align:right;
+}
+.swb-comentario-sem-imagen a{
+	outline:none;
+}
+.swb-comentario-sem img {
+	border:solid 1px #666666;
+	width:224px;
+	height:65px;
+}
+.swb-comentario-sem a {
+	font-size:11px;
+	display: table-row;
+	text-align:right;
+}
+
+.swb-comentario-sem-boton input {
+	margin:0px;
+	padding:5px 0px 5px 0px;
+	background:#369;
+	color:#FFFFFF;
+	font-weight:bold;
+	width:225px;
+}
+/*------------------- Comentarios semánticos  ----*/
+
+
+
+/*------------------- QUERY        ----*/
+#swb-query {
+    border: #336699 solid .06em;
+    padding: .2em .2em .2em .2em;
+    font-family:Arial;
+}
+#swb-query table {
+    width:100%;
+    border: #336699 solid .06em;
+    border-collapse:collapse;
+    text-align:center;
+    font-size: 1em;
+}
+#swb-query caption {
+    background-color: #336699;
+    margin: 0 0 0 0;
+    padding: 0;
+    line-height:1.56em;
+    font-size:0.88em;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-transform: capitalize;
+}
+#swb-query thead {
+    font-size: .75em;
+}
+#swb-query tbody {
+}
+#swb-query tfoot td {
+    background-color: #6699cc;
+    font-size: .6em;
+    color:#FFFFFF;
+}
+#swb-query th {
+    background-color: #cce6ff;
+    color: #336699;
+    border-bottom: #336699 solid .06em;
+    padding:5px;
+}
+#swb-query span {
+    background-color: #ff0000;
+}
+#swb-query td {
+    background-color: #eff6ff;
+    border-bottom: #CEDAE6 solid .06em;
+    font-size: .75em;
+    padding:5px;
+}
+/*------------------- QUERY        ----*/
+
+/*------------------- Mapa de sitio ---*/
+.swb-mapa {
+    border:#336699 solid 1px;
+    font-family:Arial;
+    font-size: 12px;
+}
+.swb-mapa h1{
+    background-color: #336699;
+    margin: 0 0 0.63em 0;
+    padding: 0;
+    font-size: 1em;
+    font-family:Arial;
+    text-transform:capitalize;
+    text-align:center;
+    color: #FFFFFF;
+}
+
+.swb-mapa li, .swb-mapa li a{
+    list-style:none;
+    text-decoration:none;
+    /*display:block;*/
+    cursor: pointer;
+}
+.swb-mapa li a:hover{
+    color: #3399CC;
+    cursor: pointer;
+}
+
+/* para cada nivel */
+.swb-mapa li:hover{
+    /* en IE se deforma
+    background: #EFF2FF;
+    border-bottom:#CCC dotted 1px; */
+}
+.swb-mapa ul li a {
+    line-height: 20px;
+    color:#336699;
+    font-weight:bold;
+    cursor: pointer;
+}
+
+/* estilos para los "+" y "-"  */
+.icomap-trans {
+    background-color: transparent;
+    width:8px;
+    height:8px;
+    margin:5px 3px 0px 0px;
+    float:left;
+    border: transparent solid 1px;
+    cursor:pointer;
+    text-align:center;
+}
+.icomap {
+    background-color: #eeeeee;
+    width:8px;
+    height:8px;
+    margin:5px 3px 0px 0px;
+    float:left;
+    border:#CCCCCC solid 1px;
+    cursor:pointer;
+    text-align:center;
+}
+.icomap hover{
+    background-color: #009900;
+    width:8px;
+    height:8px;
+    margin:5px 3px 0px 0px;
+    float:left;
+    border:#CCCCCC solid 1px;
+    cursor:pointer;
+}
+.icomap span {
+    color: #999;
+    line-height: 8px;
+    line-height: 8px;
+    display: block;
+}
+.icomap span:hover {
+    background-color: #99ccff;
+    color: #0000FF;
+    line-height: 8px;
+    display: block;
+}
+/* estilos para los "+" y "-"  */
+/*------------------- Mapa de sitio ---*/
+
+/*------------------- select tree  ----*/
+div.sitesectiontree a.treeres:link {
+    text-decoration:none;
+    font-weight: normal;
+    cursor: pointer;
+}
+div.sitesectiontree a.treeres:visited {
+    text-decoration:none;
+    font-weight: normal;
+    cursor: pointer;
+}
+div.sitesectiontree a.treeres:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+div.sitesectiontree a.treeres:active {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+div.sitesectiontree span {
+    cursor: pointer;
+}
+
+div.sitesectiontree ul.treeres {
+    list-style-type: none;
+    padding-left: 10px;
+    padding-right:1px;
+    margin-left:8px;
+    margin-right:10px;
+    margin-bottom:5px;
+    margin-top:2px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+/*------------------- select tree  ----*/
+
+/*--------------bookmarks-------------*/
+.swb-bkm-content{margin-left: 200px; padding:10px}
+.swb-bkm-header{background: url(../images/swbform-fieldset.png) left bottom repeat-x; border-top:1px solid blue;}
+.swb-bkm-navigation{background:#E6EDF9;width:200px}
+.swb-bkm-navbarmain{border-right:1px solid blue;}
+.swb-bkm-navigation{float:left;}
+.swb-bkm-navmenu{float:right;width:35%;}
+.swb-bkm-extra{background:white;}
+.swb-bkm-footer{background: url(../images/swbform-fieldset.png) left bottom repeat-x;}
+.swb-bkm-wrapper{float:right;width:100%;margin-left:-200px}
+.swb-bkm-extra{float:left;clear:left;}
+.swb-bkm-footer{clear:both;width:100%}
+
+.swb-bkm-boldElement {
+    font-weight: bold;
+}
+.swb-bkm-box {
+    background:#FFFFFF none repeat scroll 0 0;
+    border:1px solid #CBCBCB;
+    padding:0px;
+    position:absolute;
+    z-index:999;
+    display:block;
+    width:250px;
+    overflow:auto;
+}
+.swb-bkm-box .titleBar {
+    background:#FAFAFA url(../images/bookmarks/titleBar.png) repeat-x scroll left top;
+    outline-color:-moz-use-text-color;
+    outline-style:none;
+    outline-width:0;
+    padding:5px 6px 3px;
+    font-weight:bold;
+}
+.swb-bkm-box .title {
+    border-left:medium none;
+    border-right:medium none;
+    border-top:medium none;
+    font-size:0.9em;
+    padding:4px;
+}
+.swb-bkm-box .content{
+    padding:7px;
+}
+.swb-bkm-box .button {
+    
+}
+.swb-bkm-box .button span {
+
+}
+.swb-bkm-box .bookmarksFrame {
+    padding-top:15px;
+}
+
+.swb-bkm-box .contentPane {
+    background-color:white;
+}
+/*--------------bookmarks-------------*/
+
+/*--------------Begins Social----------------*
+.miembros .moreUser {float: left; margin-left: 3px; margin-bottom: 5px;}
+.addOn {background: #e5e6e0 url(arrow.jpg) no-repeat 5px center; padding: 5px; padding-left: 18px;}
+.addOn a {color: #333333;}
+.titulo {color: #587323; font-size: 0.8em;}
+.clear {clear: both;}
+/*--------------Ends Social----------------*/
+
+
+/*------Foro---*/
+#contenido {float: left; width: 458px;}
+.innerContent {
+    margin: 15px 10px 0px;
+}
+.entradaForo {
+    background: #FAF9E5 url(../images/plecaGris.gif) no-repeat left bottom;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+.readNotread_foro {
+    width: 18px;
+    float: left;
+    margin-right: 5px;
+    height: 24px;
+    margin-top: -2px;
+    margin-left: 5px;
+}
+.vistasForo {
+    float: right;
+}
+.vistasForo_comment {
+    clear: both; float: right; margin-top: -20px;
+}
+.lastView_foro {
+    float: left;
+}
+.vistasForo a {
+    color: #095c8a;
+}
+.replyForo {
+    background: url(../images/dottedLine.jpg) no-repeat left bottom;
+    padding-bottom: 5px;
+    min-height: 85px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.img_ReplyForo {
+    float: left;height: 80px; width: 80px; margin-right: 10px;
+}
+.tituloNota {
+    color: #095c8a;
+    font-size: 1.2em;
+    background: url(../images/dottedLine.jpg) no-repeat left bottom;
+    height: 32px;
+    margin-bottom: 10px;
+}
+.tituloNota a {
+    color: #095c8a;
+}
+.tituloNoticia {
+    font-size: 0.75em;
+    color: #095c8a;
+}
+.tituloNoticia a {
+    color: #095c8a;
+}
+.respuestaComentario_blog {
+    margin-left:70px; clear:both;
+}
+.replyComentario {
+    background: url(dottedLine.jpg) no-repeat left top;
+    padding-top: 5px;
+    min-height: 50px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.img_ReplyComment {
+    float: left;height: 50px; width: 50px; margin-right: 10px;
+}
+.clearNosp {
+    clear: both; height: 1px;
+}
+
+/*------Termina Foro---*/
+/*------RelatedTopics---*/
+.swb-relTopic {
+    border:#336699 solid .0em;
+    font-family:Arial;
+    font-size:1em;
+    color:#336699;
+    font-weight:bold;
+}
+.swb-relTopic a{
+    font-weight:normal;
+}
+.swb-relTopic fieldset{
+    margin-left:1em;
+    margin-right:1em;
+    margin-bottom:1em;
+    background: #FFF;
+    border-top:#336699 solid 0.06em;
+    border-left:#336699 solid 0.06em;
+    border-bottom:#336699 solid 0.2em;
+    border-right:#336699 solid 0.2em;
+}
+.swb-relTopic legend{
+    padding: .3em .6em .3em .6em;
+    margin-left:2em;
+    margin-bottom:1em;
+    font-size:.75em;
+    font-weight:bold;
+    color: #FFFFFF;
+    border:#336699 solid 0.06em;
+    background: #6699cc;
+}
+.swb-relTopic ul{
+    margin: 0em 0em 0em 1em;
+    padding: 0.31em 0em 0em 0.31em;
+    list-style:none;
+    list-style-position:inside;
+}
+.swb-relTopic ul li{
+
+}
+.swb-relTopic li {
+    padding: 0.31em 0.31em 0.31em 0.31em;
+    font-size: 0.75em;
+}
+.swb-relTopic li ul li {
+    padding: 0.31em 0.31em 0.31em 0.31em;
+    font-size: 1em;
+}
+.swb-relTopic li a:link{
+    color: #336699;
+    text-decoration:none;
+}
+.swb-relTopic li a:visited{
+    color: #336699;
+    text-decoration:none;
+}
+.swb-relTopic li a:hover{
+    color: #99ccff;
+    text-decoration:none;
+}
+.swb-relTopic li a:active{
+    color: #FFFFFF;
+    text-decoration:none;
+}
+.swb-relTopic-col1{
+    float:left;
+}
+.swb-relTopic-col2{
+    float:left;
+}
+/*------Termina RelatedTopics---*/
+
+
+/*------SWBComments comentario semántico---*/
+.swb-comenta {
+    border:solid 1px  #CCCCCC;
+    background: #F1F1F1;
+}
+.swb-comenta *{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:14px;
+    margin:0px;
+    padding:0px;
+    color:#333333;
+}
+.swb-comenta h1{
+    font-family:Georgia, "Times New Roman", Times, serif;
+    font-size:16px;
+    padding:10px 0px 10px 10px;
+    margin-bottom:20px;
+    display:block;
+    background: #ddd ;
+}
+.swb-comenta label {
+    width:160px;
+    text-align:right;
+    border:solid gray 0px;
+    display:block;
+    float:left;
+    margin-right:10px;
+    padding:2px;
+}
+.swb-comenta input{
+    width:220px;
+    border:#6f131c solid 1px;
+    padding:2px;
+}
+
+.swb-comenta img{
+    border:solid 1px #666666;
+    margin-left:174px;
+    width:222px;
+}
+.swb-comenta a{
+    font-size:11px;
+    display: table;
+    width:220px;
+    margin-left:172px;
+    border:solid 0px #666666;
+    text-align:right;
+}
+.swb-comenta textarea{
+    width:224px;
+    height:100px;
+    border:#6f131c solid 1px;
+}
+.swb-comenta-nombre,
+.swb-comenta-correo,
+.swb-comenta-comenta,
+.swb-comenta-captcha,
+.swb-comenta-imagen,
+.swb-comenta-boton {
+    display:table;
+    width:450px;
+    padding:6px 0px 6px 0px;
+    margin:auto;
+    border:dotted red 0px;
+}
+.swb-comenta-boton input{
+    margin:10px 0px 10px 170px;
+    padding:5px 0px 5px 0px;
+    background:#991731;
+    color:#FFFFFF;
+    font-weight:bold;
+}
+
+.swb-comenta-lista h1{
+    font-family:Georgia, "Times New Roman", Times, serif;
+    font-size:16px;
+    text-transform:capitalize;
+    padding:30px 0px 10px 10px;
+    margin-bottom:20px;
+    display:block;
+    border-top: dashed #efefef 1px;
+    border-bottom:solid #CCCCCC 1px;
+    color:#333;
+}
+.swb-comenta-lista li {
+    list-style:none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:12px;
+    color:#999999;
+    margin-bottom:20px;
+    padding-bottom:10px;
+    border-bottom:solid #CCCCCC 1px;
+}
+.swb-comenta-lista span{
+    font-size:15px;
+    font-weight:bold;
+    color:#6f131c;
+}
+.swb-comenta-lista p{
+    margin:0;
+    margin-top:5px;
+    font-size:14px;
+    color:#333333;
+}
+/*------Termina SWBComments---*/
+
+/*------Contacto---*/
+.swb-contact {
+    border:solid 0px #CCCCCC;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    color:#369;
+    padding:0px;
+    margin:0px;
+}
+.swb-contact-stgy {
+    border:solid 0px #999;
+    padding-top:4px;
+    margin:5px;
+    font-size:1em;
+    color:#369;
+}
+.swb-contact-inst {
+    font-weight: bold;
+}
+.swb-contact label {
+    border:solid 0px #999;
+    width:160px;
+    display:block;
+    float:left;
+    clear:both;
+    height:19px;
+    padding-top:4px;
+    text-align:right;
+    margin:0px 5px 0px 5px;
+}
+.swb-contact textarea, .swb-contact-field {
+    width:270px;
+    font-family:Arial, Helvetica, sans-serif;
+    color:#369;
+}
+.swb-contact-button {
+    background-color:#336699;
+    color:#FFFFFF;
+    margin: 5px;
+    font-size:1em;
+    border:outset 1px #336699;
+    margin-right:20px;
+}
+.swb-contact-cmd{
+    margin-left:85px;
+}
+.swb-contact-fail{
+    width:270px;
+    font-family:Arial, Helvetica, sans-serif;
+    color:#8A4B08;
+}
+.swb-contact-tks{
+    border:solid 1px #999;
+    width:270px;
+    display:block;
+    float:left;
+    clear:both;
+    padding-top:4px;
+    text-align:right;
+    margin:0px 5px 0px 5px;
+}
+/*------Contacto---*/
