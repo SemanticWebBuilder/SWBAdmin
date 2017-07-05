@@ -1,8 +1,9 @@
-/* 
+/*
     Document   : swb
     Created on : 28/09/2008, 02:45:57 AM
     Author     : Jei
-	Modificado : Agosto 2016, Rogelio Esperón
+    Description:
+        Purpose of the stylesheet follows.
 */
 
 html, body, #main {
@@ -12,18 +13,19 @@ html, body, #main {
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
     font: 10pt Arial,Myriad,Tahoma,Verdana,sans-serif;
-	color:#666;
 }
 
-.soria .dijitTreeIcon { width:20px; height: 18px;}
+.soria .dijitTreeIcon
+{
+    width:20px;
+    height: 18px;
+}
 
 .swbLogo {
     width: 252px;
-    height:35px; /*26 cambio*/
+    height: 26px;
     padding: 0px 0px 0px 0px;
-    background-image: url('../images/swb-portal.png');
-	background-repeat:no-repeat;
-	background-position: 8px 0px;
+    background-image: url('../images/swb-logo.jpg');
     margin: expression('0px 0px -7px 0px'); /*IE*/
 }
 
@@ -58,28 +60,14 @@ html, body, #main {
 .swbIconWebSiteU,
 .swbIconUserRespositorys,
 .swbIconUserRepository,
-
 .swbIconHomePage,
 .swbIconHomePageU,
-.swbIconHomePageE,
-.swbIconHomePageW,
-.swbIconHomePageF,
-.swbIconHomePageV,
-
-.swbIconCanalPage,
-.swbIconCanalPageU,
-.swbIconCanalPageE,
-.swbIconCanalPageW,
-.swbIconCanalPageF,
-.swbIconCanalPageV,
-
 .swbIconWebPage,
 .swbIconWebPageU,
 .swbIconWebPageE,
 .swbIconWebPageW,
 .swbIconWebPageF,
 .swbIconWebPageV,
-
 .swbIconCamps,
 .swbIconCamp,
 .swbIconCampU,
@@ -116,10 +104,6 @@ html, body, #main {
 .swbIconTrash,
 .swbIconAdd,
 .swbIconEdit,
-.swbIconPreview,
-.swbIconDesactivar,
-.swbIconActivar,
-.swbIconFav,
 .swbIconDelete,
 .swbIconCalendars,
 .swbIconCalendar,
@@ -133,6 +117,8 @@ html, body, #main {
 .swbIconProcess,
 .swbIconProcesses,
 .swbIconProcessU,
+.swbIconProcessGroup,
+.swbIconProcessGroupU,
 .swbIconProcessW,
 .swbIconProcessF,
 .swbIconProcessE,
@@ -309,54 +295,36 @@ html, body, #main {
     height: 18px;
     text-align: center;
     padding-right:0px;
-    background-image: url('../icons/icons20x18.png'); background-position: -620px -198px;
+    background-image: url('../icons/icons20x18.png'); background-position: -620px -200px;
 }
 
 .swbIconSystem      { background-position: -200px -0px; }
 .swbIconStrategy    { background-position: -240px -0px; }
 .swbIconContent     { background-position: -260px -0px; }
-.swbIconResources   { background-position: -340px -0px  }
-
-.swbIconResource    { background-position: -340px -18px }
-.swbIconResourceU   { background-position: -340px -36px }
-.swbIconResourceE   { background-position: -340px -54px }
-.swbIconResourceW   { background-position: -340px -72px }
-.swbIconResourceF   { background-position: -340px -90px }
-
+.swbIconResources   { background-position: -340px -0px; }
+.swbIconResource    { background-position: -340px -18px; }
+.swbIconResourceU   { background-position: -340px -36px; }
+.swbIconResourceF   { background-position: -120px -72px; }
+.swbIconResourceW   { background-position: -140px -72px; }
+.swbIconResourceE   { background-position: -160px -72px; }
 .swbIconResourceType{ background-position: -340px -0px; }
 .swbIconTemplates   { background-position: -140px -0px; }
-
-.swbIconTemplate    { background-position: -140px -18px }
-.swbIconTemplateU   { background-position: -140px -36px }
-.swbIconTemplateE   { background-position: -140px -54px }
-.swbIconTemplateW   { background-position: -140px -72px }
-.swbIconTemplateF   { background-position: -140px -90px }
-
-.swbIconWebSites    { background-position: -280px -0px  }
-.swbIconWebSite     { background-position: -280px -18px }
-.swbIconWebSiteU    { background-position: -280px -36px }
-
-.swbIconHomePage    { background-position: -400px -18px}
-.swbIconHomePageU   { background-position: -400px -36px}
-.swbIconHomePageE   { background-position: -400px -54px}
-.swbIconHomePageW   { background-position: -400px -72px}
-.swbIconHomePageF   { background-position: -400px -90px}
-.swbIconHomePageV   { background-position: -400px -18px}
-
-.swbIconWebPage     { background-position: -380px -18px}
-.swbIconWebPageU    { background-position: -380px -36px}
-.swbIconWebPageE    { background-position: -380px -54px}
-.swbIconWebPageW    { background-position: -380px -72px}
-.swbIconWebPageF    { background-position: -380px -90px}
-.swbIconWebPageV    { background-position: -380px -18px}
-
-.swbIconCanalPage   { background-position: -420px -18px}
-.swbIconCanalPageU  { background-position: -420px -36px}
-.swbIconCanalPageE  { background-position: -420px -54px}
-.swbIconCanalPageW  { background-position: -420px -72px}
-.swbIconCanalPageF  { background-position: -420px -90px}
-.swbIconCanalPageV  { background-position: -420px -18px}
-
+.swbIconTemplate    { background-position: -140px -18px; }
+.swbIconTemplateU   { background-position: -140px -36px; }
+.swbIconTemplateF   { background-position: -180px -72px; }
+.swbIconTemplateW   { background-position: -200px -72px; }
+.swbIconTemplateE   { background-position: -220px -72px; }
+.swbIconWebSites    { background-position: -280px -0px; }
+.swbIconWebSite     { background-position: -280px -18px; }
+.swbIconWebSiteU    { background-position: -280px -36px; }
+.swbIconHomePage    { background-position: -400px -18px; }
+.swbIconHomePageU   { background-position: -400px -36px; }
+.swbIconWebPage     { background-position: -420px -18px; }
+.swbIconWebPageU    { background-position: -420px -36px; }
+.swbIconWebPageF    { background-position: -0px -72px; }
+.swbIconWebPageW    { background-position: -20px -72px; }
+.swbIconWebPageE    { background-position: -40px -72px; }
+.swbIconWebPageV    { background-position: -140px -199px; }
 .swbIconDnss        { background-position: -80px -0px; }
 .swbIconDns         { background-position: -80px -18px; }
 .swbIconLanguages   { background-position: -20px -0px; }
@@ -375,8 +343,8 @@ html, body, #main {
 .swbIconCamp        { background-position: -160px -18px; }
 .swbIconCampU       { background-position: -160px -36px; }
 .swbIconRules       { background-position: -60px -0px; }
-.swbIconRule        { background-position: -60px -18px; }
-.swbIconRuleU       { background-position: -60px -36px; }
+.swbIconRule        { background-position: -260px -18px; }
+.swbIconRuleU       { background-position: -260px -36px; }
 .swbIconDevices     { background-position: -100px -0px; }
 .swbIconDevice      { background-position: -100px -18px; }
 .swbIconPFlows      { background-position: -120px -0px; }
@@ -387,13 +355,6 @@ html, body, #main {
 .swbIconDelete      { background-position: -103px -200px; }
 .swbIconAdd         { background-position: -242px -200px; }
 .swbIconEdit        { background-position: -3px -145px; }
-
-.swbIconPreview     { background-position: -300px -145px; }
-.swbIconDesactivar  { background-position: -360px -145px; }
-.swbIconActivar     { background-position: -340px -145px; }
-.swbIconFav         { background-position: -320px -145px; }
-
-
 .swbIconCalendars   { background-position: -220px -0px; }
 .swbIconCalendar    { background-position: -220px -18px; }
 .swbIconCalendarU   { background-position: -220px -36px; }
@@ -404,6 +365,8 @@ html, body, #main {
 .swbIconProperty    { background-position: -240px -90px; }
 
 .swbIconProcess     { background-position: -460px -18px; }
+.swbIconProcessGroup { background-position: -380px -0px; }
+.swbIconProcessGroupU { background-position: -620px -18px; }
 .swbIconProcessTools{ background-position: -500px -0px; }
 .swbIconX509Certificates { background-position: -480px -0px; }
 .swbIconX509Certificate { background-position: -480px -18px; }
@@ -577,7 +540,7 @@ html, body, #main {
 .swbIconLaneE   { background-position: -80px -360px; }
 
 
-.admViewProperties table{ padding:0px; margin:-12px; width:101%; border-collapse:collapse; }
+.admViewProperties table{ padding:0px; margin:-10px; width:100%; }
 .admViewProperties div div div{ padding:0px; margin:0px; width:100%; }
 
 caption {
@@ -587,18 +550,14 @@ caption {
     font-weight: bold;
 }
 
-.admViewProperties th {
-	background: #3d4e5e;
-    border-bottom: 1px solid #263747;
-    border-top: 1px solid #667787;
-    color: #fff;
-    font-weight: normal;
-    margin: 0;
-    padding: 3px 0 3px 10px;
-    text-align: left;
-}
-.admViewProperties td {
-	padding:3px 0px 3px 10px;
+th {
+	background-color: #4f8ce5;
+	color: #666;
+	font-weight: bold;
+	margin:0;
+	padding:1px 5px;
+	background-image:url('../js/dojo/dijit/themes/soria/images/titleBar.png');
+	background-position:0px -1px;
 }
 
 .swbform legend {
@@ -611,19 +570,19 @@ caption {
     margin: 0;
     padding: 0;
 }
-	
+
 .swbform fieldset fieldset {
     border: none;
     padding: 0px 25px 0px 0px;
     background: none;
 }
-	
+
 /*.swbform fieldset fieldset legend {
     width: 25%;
     text-align: right;
 	font-weight: normal;
 }*/
-	
+
 /*.swbform fieldset fieldset label {
 	display: block;
 	width: auto;
@@ -634,10 +593,10 @@ caption {
 
 /*.swbform fieldset span label {
     width: auto;
-    padding: 0px 10px 0px 0px;  
-	_display: block;            
-    _margin-left: 25.5%;        
-    _text-align: left;         
+    padding: 0px 10px 0px 0px;
+	_display: block;
+    _margin-left: 25.5%;
+    _text-align: left;
 	}*/
 
 .swbform em {
@@ -654,18 +613,16 @@ caption {
     /*background: url(../images/swbform-fieldset.png) left bottom repeat-x;*/
 }
 
-.swbform table { border-collapse:collapse}
-.swbform th    { background:#5186b5; border-right:1px solid #fff; color: #fff; padding: 7px 0 7px 20px; text-align: left;}
-.swbform td { border-bottom:1px solid #efefef !important; padding: 7px 20px; text-align:left;}
-
-
 .swbform legend,
-.swbform label { color:#666; }
+.swbform label { color: #333; }
 
 .swbform fieldset {
     /*_width: 400px;*/
     padding: 5px;
-    border:0px solid #a0a0ff;
+    border-top: 1px solid #a0a0ff;
+    border-left: 1px solid #a0a0ff;
+    border-bottom: 1px solid #a0a0ff;
+    border-right: 1px solid #a0a0ff;
 	/*_background: url(../images/swbform-fieldset.png) left bottom repeat-x;
     _background: url('../js/dojo/dijit/themes/soria/images/titleBar.png') left bottom repeat-x;*/
 }
@@ -680,17 +637,11 @@ caption {
 .swbform-li { padding-bottom:3px;}
 
 #swblogout {
-    padding:12px 5px;
+    padding:5px;
     position:absolute;
     right:0px;
+    font-weight:bold;
     z-index:auto;
-	color:#999;
-	font-size:12px;
-}
-#swblogout * {
-    color:#fff;
-    text-decoration:none;
-	padding:0 10px;
 }
 
 .applet{
@@ -774,12 +725,12 @@ caption {
 div.sitesectiontree a.treeres:link {
 	text-decoration:none;
 	font-weight: normal;
-	cursor: pointer;	
+	cursor: pointer;
 }
 div.sitesectiontree a.treeres:visited {
 	text-decoration:none;
 	font-weight: normal;
-	cursor: pointer;	
+	cursor: pointer;
 }
 div.sitesectiontree a.treeres:hover {
 	text-decoration: underline;
@@ -802,10 +753,3 @@ div.sitesectiontree ul.treeres {
 	font-size: 12px;
 }
 /*------------------- select tree  ----*/
-
-#status { background:#036 !important}
-
-/*VISTA PREVIA*/
-body.vistaPrevia { padding:0px 20px 0px 30px; overflow:auto !important }
-
-
