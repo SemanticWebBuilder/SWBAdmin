@@ -1,21 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 var context = "";
 var word_separator = '_';
 var trees = new Array();
 
 var CONST_TAB = "/tab";   //Constante sufijo para identificar al tab
 
-//var LOADING_MSG="<BR/><center><img src='"+context+"/swbadmin/images/loading.gif'><center>";
-
-//dojo.require("dijit.form.Form");
-//dojo.require("dijit.layout.ContentPane");
-
 var act_item;
 var act_store;
 var act_treeNode;
+var eletimeout;
 
 function getHtml(url, tagid, parse, sync)
 {
@@ -34,12 +26,10 @@ function getHtmlByTag(url, tag, parse, sync)
         sync: sync,
         load: function(response, ioArgs)
         {
-            //var tag=dojo.byId(tagid);
             if (tag) {
                 if (parse == true)
                     destroyChilds(tag);
                 var pan = dijit.byNode(tag);
-                //alert("-"+tagid+"-"+tag+"-"+pan+"-");
                 if (pan && pan.attr)
                 {
                     pan.attr('content', response);
@@ -76,7 +66,6 @@ function postHtml(url, tagid)
             var tag = dojo.byId(tagid);
             if (tag) {
                 var pan = dijit.byId(tagid);
-                //alert("-"+tagid+"-"+tag+"-"+pan+"-");
                 if (pan && pan.attr)
                 {
                     pan.attr('content', response);
@@ -120,24 +109,18 @@ function getSyncHtml(url)
 
 function getJSON(url)
 {
-    //alert("load:"+url);
     var ret = [];
     var obj = dojo.xhrGet({
         url: url,
         sync: true,
         load: function(data) {
-            //obj=data;
-            //alert("1:"+data);
             ret = data;
-            //return data;
         },
         error: function(data) {
             alert("An error occurred, with response: " + data);
-            //return data;
         },
         handleAs: "json"
     });
-    //alert(url+" "+ret);
     return ret;
 }
 
@@ -179,13 +162,9 @@ function postText(url,dta)
 
 function showDialog(url, title)
 {
-    //alert("url:"+url);
     dojo.xhrGet({
         url: url,
         load: function(response, ioArgs) {
-            //alert(response);
-            //dijit.byId('swbDialogImp').attr('content',response);
-            //console.log(dijit.byId('swbDialog'));
             dijit.byId('swbDialog').show();
             dijit.byId('swbDialogImp').attr('content', response);            
             setDialogTitle(title);
@@ -193,8 +172,6 @@ function showDialog(url, title)
         },
         error: function(response, ioArgs) {
             showStatus('Error:' + response);
-            //dijit.byId('swbDialogImp').attr('content','Error: '+response);
-            //dijit.byId('swbDialog').show();
             return response;
         },
         handleAs: "text"
@@ -203,12 +180,9 @@ function showDialog(url, title)
 
 function showDialog2(url, title)
 {
-    //alert("url:"+url);
     dojo.xhrGet({
         url: url,
         load: function(response, ioArgs) {
-            //alert(response);
-            //dijit.byId('swbDialogImp').attr('content',response);
             dijit.byId('swbDialog').show();
             dijit.byId('swbDialogImp').domNode.innerHTML = response;
             console.log(dijit.byId('swbDialog'));
@@ -217,8 +191,6 @@ function showDialog2(url, title)
         },
         error: function(response, ioArgs) {
             showStatus('Error:' + response);
-            //dijit.byId('swbDialogImp').attr('content','Error: '+response);
-            //dijit.byId('swbDialog').show();
             return response;
         },
         handleAs: "text"
@@ -240,7 +212,6 @@ function getContentPanel(reference)
 {
     if (!reference || reference == null)
         return null;
-    //alert("reference:"+reference.getAttribute("dojoType"));
     var att = reference.getAttribute("dojoType");
     if (att && (att == "dijit.layout.ContentPane" || att == "dojox.layout.ContentPane" || att == "dijit.TitlePane"))
     {
@@ -260,7 +231,6 @@ function getContentPanel(reference)
 function submitUrl(url, reference)
 {
     var panel = getContentPanel(reference);
-    //alert("panel:"+panel);
     dojo.xhrGet({
         url: url,
         load: function(response, ioArgs)
@@ -289,7 +259,6 @@ function submitForm(formid)
     var obj = dojo.byId(formid);
     var objd = dijit.byId(formid);
     var fid = formid;
-    //alert("id:"+formid+" "+"dojo:"+obj +" dijit:"+objd);
     if (!obj && objd) //si la forma esta dentro de un dialog
     {
         obj = objd.domNode;
@@ -300,7 +269,6 @@ function submitForm(formid)
     {
         try
         {
-            //dojo.fadeOut({node: formid, duration: 1000}).play();
             dojo.fx.wipeOut({node: formid, duration: 500}).play();
         } catch (noe) {
         }
@@ -322,11 +290,9 @@ function submitForm(formid)
         } catch (ex) {
         }
 
-        //alert("entra2");
         dojo.xhrPost({
             // The page that parses the POST request
             contentType: "application/x-www-form-urlencoded; charset=utf-8",
-            //handleAs: "text",
 
             url: obj.action,
             // Name of the Form we want to submit
@@ -335,26 +301,19 @@ function submitForm(formid)
             load: function(data)
             {
                 var panel = getContentPanel(obj);
-                //alert("div:"+panel.id);
-                //alert("div:"+panel.suportScripts);
                 if (panel)
                 {
                     try
                     {
                         var aux = panel.href;
-                        //alert("div1:"+panel.href);
                         panel.attr('content', data);
                         panel.href = aux;
-                        //alert("div2:"+panel.href);
                         if (!panel.suportScripts)
                             runScripts(data);
                     } catch (e) {
                         alert(e.message);
                     }
                 }
-                //dijit.byId('swbDialog').hide();
-                //div_node.innerHTML = data;
-                //dojo.parser.parse(div_node,true);
             },
             // Call this function if an error happened
             error: function(error) {
@@ -450,10 +409,7 @@ function decodeExtendedCharacters(str)
             var i = str.indexOf(";", x);
             if (i > 2 && str.charAt(x + 1) == '#')
             {
-                //alert("x:"+x+" "+i);
                 var v = parseInt(str.substring(x + 2, i));
-                //alert(v);
-                //str.replace(x,i+1,""+(char)v);
                 ret += String.fromCharCode(v);
                 x = i;
             } else
@@ -464,7 +420,6 @@ function decodeExtendedCharacters(str)
     return ret;
 }
 
-//alert("hola:"+decodeExtendedCharacters("á&#27721;é"));
 //Depricado, usar addNewTab
 function selectTab(id, url, title, tabName)
 {
@@ -473,8 +428,6 @@ function selectTab(id, url, title, tabName)
 
 function addNewTab(id, url, title, tabName)
 {
-    //alert("addNewTab:"+title);
-    //if(title)title=encodeExtendedCharacters(title);
     var objid = id + CONST_TAB;
     var newTab = dijit.byId(objid);
     if (!url)
@@ -485,11 +438,9 @@ function addNewTab(id, url, title, tabName)
                 {
                     id: objid,
                     closeable: 'true',
-                    //loadingMessage: LOADING_MSG,
                     onClose: function()
                     {
                         var ret = true;
-                        //ret=confirm("Do you really want to Close this?");
                         if (ret)
                         {
                             var d = dijit.byId(objid + "2");
@@ -539,7 +490,6 @@ function addNewTab(id, url, title, tabName)
             {
                 var closeall = new dijit.MenuItem({
                     label: "Cerrar todos",
-                    //iconClass:"swbIconDelete",
                     onClick: function()
                     {
                         var ret = true;
@@ -559,7 +509,6 @@ function addNewTab(id, url, title, tabName)
                 menu.addChild(closeall);
                 var closeothers = new dijit.MenuItem({
                     label: "Cerrar los demas",
-                    //iconClass:"swbIconDelete",
                     onClick: function()
                     {
                         var ret = true;
@@ -585,13 +534,11 @@ function addNewTab(id, url, title, tabName)
         if (tabName)
         {
             alert("revisar");
-            //objid = id + CONST_TAB + "2";
             objid = replaceId(id) + "_tab2";
             var tab = dijit.byId(objid);
             if (tab)
             {
                 var arr = tab.getChildren();
-                //alert(arr.length);
                 for (var n = 0; n < arr.length; n++)
                 {
                     if (arr[n].id == (id + "/" + tabName))
@@ -618,11 +565,7 @@ function replaceId(id)
 
 function reloadTab(uri)
 {
-    //alert("reload:"+replaceId(uri));
-    //var aux;
-    //var objid = uri + CONST_TAB + "2";
     var objid = replaceId(uri) + "_tab2";
-    //alert("id:"+objid);
     var tab = dijit.byId(objid);
     if (tab)
     {
@@ -630,7 +573,6 @@ function reloadTab(uri)
         for (var n = 0; n < arr.length; n++)
         {
             arr[n].refresh();
-            //arr[n]._prepareLoad();
         }
     }
 }
@@ -641,21 +583,17 @@ function executeAction(store, item, action)
     act_store = store;
     if (action.length)
         action = action[0];
-    //alert("store:"+store+" action:"+action+" ["+action.name+"] "+action.length);
     if (action.name == "reload")
     {
         reloadTreeNode(store, item);
     } else if (action.name == "newTab")
     {
-        //alert("id1"+item.id);
         var id = "" + item.id;
         var ind = id.indexOf('|');
-        //alert("ind"+ind);
         if (ind > 0)
         {
             id = id.substring(0, ind);
         }
-        //alert("id2"+id);
         addNewTab(id, action.value, item.title);
     } else if (action.name == "showDialog")
     {
@@ -672,7 +610,6 @@ function executeAction(store, item, action)
         showPreviewURL(action.value);
     } else if (action.name == "getHtml")
     {
-        //alert(action.value+" "+action.target);
         var url = "" + action.value;
         var tag = "" + action.target;
         getHtml(url, tag);
@@ -685,7 +622,6 @@ function executeTreeNodeEvent(store, item, eventname)
     var event = getTreeNodeEvent(store, item, eventname);
     if (event)
     {
-        //alert("event:"+event.name+" "+event.action);
         executeAction(store, item, event.action);
     }
 }
@@ -694,7 +630,6 @@ function executeTreeNodeEvent(store, item, eventname)
 function getTreeNodeEvent(store, item, eventname)
 {
     var events = store.getValues(item, "events");
-    //var events=item.events;
     if (events)
     {
         for (var x = 0; x < events.length; x++)
@@ -710,11 +645,9 @@ function getTreeNodeEvent(store, item, eventname)
 
 function removeChilds(store, item)
 {
-    //alert("removeChilds:"+item.children);
     var items = item.children;
     if (items)
     {
-        //alert("removeChilds2:"+item.children.length);
         for (var i = 0; i < items.length; i++)
         {
             removeChilds(store, items[i]);
@@ -731,7 +664,6 @@ function updateTreeNodeByURI(uri)
     for (x = 0; x < trees.length; x++)
     {
         var s = trees[x].model.store;
-        //alert("store:"+trees[x].store+" "+trees[x].model+" "+trees[x].model.store);
         var n = getItem(s, uri);
         if (n)
         {
@@ -745,7 +677,6 @@ function updateTreeNodeByURI(uri)
 //recarga nodo sin hijos
 function updateTreeNode(store, item, jsonNode, refreshTabTitle)
 {
-    //alert("Store:"+store+" "+act_store.jsId);
     if (!store)
         store = act_store;
     if (!item)
@@ -796,17 +727,14 @@ function setWaitCursor()
 {
     if (act_treeNode && act_treeNode.isTreeNode)
     {
-        //alert(act_treeNode);
         act_treeNode.markProcessing();
     }
     document.body.style.cursor = "wait";
-    //dojo.byId("leftAccordion").style.cursor="wait";
 }
 
 function setDefaultCursor()
 {
     document.body.style.cursor = "default";
-    //dojo.byId("leftAccordion").style.cursor="default";
     if (act_treeNode && act_treeNode.isTreeNode)
     {
         try
@@ -880,7 +808,6 @@ function reloadTreeNodeByURI(uri)
     for (x = 0; x < trees.length; x++)
     {
         var s = trees[x].model.store;
-        //alert("store:"+trees[x]+" "+trees[x].id);
         var n = getItem(s, uri);
         if (n)
         {
@@ -897,13 +824,10 @@ function reloadTreeNode(store, item)
     if (!item)
         item = act_item;
     setWaitCursor();
-    //alert("reload:"+item.id);
     removeChilds(store, item);
     var arr = getJSON(context + store.controllerURL + "?suri=" + encodeURIComponent(item.id) + "&type=" + item.type)
     updateTreeNode(store, item, arr[0]);
-    //alert("arr:"+arr[0].id);
     var items = arr[0].children;
-    //alert("nitem:"+items.length);
     if(items)
     {
         for (var i = 0; i < items.length; i++)
@@ -920,21 +844,17 @@ function addItemByURI(store, parent, uri)
     if (!store)
         store = act_store;
     setWaitCursor();
-    //alert("reload:"+item.id);
     var arr = getJSON(context + store.controllerURL + "?childs=false&suri=" + encodeURIComponent(uri));
     var item = arr[0];
     addItem(store, item, parent);
     store.save();
-    //printObjProp(store);
     setDefaultCursor();
-//          focusNodeByURI(uri);
 }
 
 function addItem(store, item, parent)
 {
     if (getItem(store, item.id))
         return;
-    //alert("addItem:"+item+" "+parent);
     var pInfo;
     if (parent)
     {
@@ -943,9 +863,7 @@ function addItem(store, item, parent)
     {
         pInfo = {attribute: "children"};
     }
-    //alert("addItem2:"+store+" "+pInfo);
     var ite = store.newItem(item, pInfo);
-    //alert("hasChilds:"+item.hasChilds+" "+item.children.length);
 
     var childs = item.children;
     if (childs && childs.length > 0)
@@ -953,12 +871,10 @@ function addItem(store, item, parent)
         for (var x = 0; x < childs.length; x++)
         {
             //TODO:
-            //alert("store:"+store+" childs[x]:"+childs[x].title+" item:"+ite.title);
             addItem(store, childs[x], ite);
         }
     } else if (item.hasChilds)
     {
-        //alert("hasChilds:"+items[i].id+" "+ite);
         pInfo = {parent: ite, attribute: "children"};
         var dummy = {"id": item.id + "_tmp_", "icon": "swbIconWebSite", "title": "dummy"};
         store.newItem(dummy, pInfo);
@@ -1008,10 +924,8 @@ function scroll()
         setTimeout(scroll, t);
     else
     {
-        //self.status="hidden";
         ele.style.display = "none";
     }
-    //ele.style.display = "none";
 }
 
 function showError(msg)
@@ -1021,7 +935,31 @@ function showError(msg)
 
 function showStatus(msg, bgcolor)
 {
-    if (!bgcolor)
+	var ele = document.getElementById("status")
+	var dele = dijit.byId('status');
+	
+	ele.removeAttribute("class");
+	if (eletimeout) { //status to be shown, cancel
+		clearTimeout(eletimeout);
+		eletimeout = null;
+	}
+	
+	if (!bgcolor) {
+		bgcolor = "#333";
+	}
+	ele.style.backgroundColor = bgcolor;
+	
+	ele.innerHTML = msg;
+	dele.attr('content', msg);
+	
+	setTimeout(function() {
+		ele.className = "show";
+		dele.style.bgColor = bgcolor;
+		
+		eletimeout = setTimeout(function() { ele.removeAttribute("class"); }, 3000);
+	},100);
+	
+    /*if (!bgcolor)
         bgcolor = "blue";
     var ele = dijit.byId('status');
     ele.style.bgColor = bgcolor;
@@ -1031,7 +969,7 @@ function showStatus(msg, bgcolor)
     ele.innerHTML = msg;
     sy = ini;
     si = 2;
-    scroll();
+    scroll();*/
 }
 
 function showStatusURL(url, sync)
@@ -1070,11 +1008,8 @@ function getItem(store, id)
 
 function runScripts(content)
 {
-    //var content=panel.attr('content');
-    //alert(content);
     var src = new RegExp('<script[\\s\\S]*?</script>', 'gim');
     var load = content.match(src);
-    //alert(load);
     if (load != null)
     {
         for (var c = 0; c < load.length; c++)
@@ -1091,7 +1026,6 @@ function runScripts(content)
             onloadscript = onloadscript.replace(repl, '');
 
             // Save scripts
-            //alert("script:"+onloadscript);
             eval(onloadscript);
         }
     }
@@ -1100,24 +1034,19 @@ function runScripts(content)
 function registerTree(tree)
 {
     trees[trees.length] = tree;
-    //alert(stores.length);
 }
 
 function setTabTitle(uri, title, icon)
 {
-    //alert("setTabTitle:"+title);
-    //if(title)title=encodeExtendedCharacters(title);
     var objid = uri + CONST_TAB;
     var tab = dijit.byId(objid);
     if (tab != null)
     {
         var aux = title;
-        //if(icon)aux="<span><span style='position:fixed; margin:0px -3px; ' class='"+icon+"'></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+aux+"</span>";
         if (icon)
             aux = "<span style_='height:18px;' class='dijitReset dijitInline " + icon + "'></span><span class='dijitReset dijitInline dijitButtonText'>" + aux + "</span>";
         tab.title = aux;
         tab.controlButton.containerNode.innerHTML = aux || "";
-        //alert(tab.title);
     }
 }
 
@@ -1195,7 +1124,6 @@ function matchDropLevel(dragNode, dropNode)
         if (pathDrag != pathDrop)
             ret = false;
 
-        //self.status=level+" "+pathDrag+" "+pathDrop;
     }
     return ret;
 }
@@ -1210,34 +1138,6 @@ function onClickTab(tab)
     _oldTabClick = tab;
 }
 
-/*
-//RELOAD ON CLICK TAB
-var _oldTabButton;
-function onLoadTab(tab)
-{
-    if (!tab.controlButton.tab)
-    {
-        tab.controlButton.onClick=onclickTab;
-        //alert("connect:"+tab+" "+tab.controlButton);
-        //dojo.connect(tab.controlButton, 'onClick', onClickTab);
-        _oldTabButton = tab.controlButton;
-        _oldTabButton.tab = tab;
-    }
-}
-function onClickTab(e)
-{
-    var button = dijit.byId(e.target.id);
-    //alert("onclick:"+button+" "+button.tab);
-    if (_oldTabButton == button)
-    {
-        //printObjProp(button.tab);
-        //button.tab._prepareLoad();
-        button.tab.refresh();
-    }
-    _oldTabButton = button;
-}
-*/
-
 function printObjProp(obj, content)
 {
     var ret = "";
@@ -1250,7 +1150,6 @@ function printObjProp(obj, content)
             ret += property + ", ";
         }
     }
-    //console.log(ret);
     alert(ret);
 }
 
@@ -1258,9 +1157,7 @@ function printObjProp(obj, content)
 function destroyChilds(tag)
 {
     var widgets = dijit.findWidgets(tag);
-    //printObjProp(widgets,true);
     dojo.forEach(widgets, function(w) {
-        //printObjProp(w,true);
         w.destroyRecursive(true);
     });
 }
@@ -1541,11 +1438,9 @@ function exportReport(url)
 
 function enviar(frmid, accion)
 {
-    //alert('fid:'+frmid+', action: '+accion);
     var frm = dijit.byId(frmid);
     frm.attr('action', accion);
 
-    //alert('forma action:'+frm.attr('action'));
     submitForm(frmid);
     return false;
 }
@@ -1861,20 +1756,7 @@ function updItem(uri, param, sel) {
     var valor = sel.options[sel.options.selectedIndex].value;
     var url = uri + '&' + param + '=' + escape(valor);
     submitUrl(url, sel);
-    //window.location=url;
 }
-
-//function addcss(css){
-//    var head = document.getElementsByTagName('head')[0];
-//    var s = document.createElement('style');
-//    s.setAttribute('type', 'text/css');
-//    if (s.styleSheet) {   // IE
-//        s.styleSheet.cssText = css;
-//    } else {                // the world
-//        s.appendChild(document.createTextNode(css));
-//    }
-//    head.appendChild(s);
-// }
 
 function loadjscssfile(filename, filetype) {
     if (filetype == "js") { //if filename is a external JavaScript file
@@ -1891,10 +1773,6 @@ function loadjscssfile(filename, filetype) {
     if (typeof fileref != "undefined")
         document.getElementsByTagName("head")[0].appendChild(fileref)
 }
-
-//loadjscssfile("myscript.js", "js") //dynamically load and add this .js file
-//loadjscssfile("javascript.php", "js") //dynamically load "javascript.php" as a JavaScript file
-//loadjscssfile("mystyle.css", "css") ////dynamically load and add this .css file
 
 /**
  * jBeep
