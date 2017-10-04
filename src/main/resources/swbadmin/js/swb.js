@@ -1175,14 +1175,14 @@ function matchDropLevel(dragNode, dropNode)
 
         var path = "";
         var aux = dragNode;
-        while (aux != null)
+        while (aux != null && aux.id!="mtree")
         {
             path = aux.id + "|" + path
             aux = aux.getParent();
         }
         pathDrag = path;
         aux = dropNode;
-        while (aux != null)
+        while (aux != null && aux.id!="mtree")
         {
             path = aux.id + "|" + path
             aux = aux.getParent();

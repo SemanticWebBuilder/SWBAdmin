@@ -1,4 +1,4 @@
-/* 
+/*
     Document   : swb
     Created on : 28/09/2008, 02:45:57 AM
     Author     : Jei
@@ -15,7 +15,7 @@ html, body, #main {
     font: 10pt Arial,Myriad,Tahoma,Verdana,sans-serif;
 }
 
-.soria .dijitTreeIcon 
+.soria .dijitTreeIcon
 {
     width:20px;
     height: 18px;
@@ -551,13 +551,13 @@ caption {
 }
 
 th {
-	background-color: #4f8ce5; 
-	color: #666; 
+	background-color: #4f8ce5;
+	color: #666;
 	font-weight: bold;
 	margin:0;
 	padding:1px 5px;
 	background-image:url('../js/dojo/dijit/themes/soria/images/titleBar.png');
-	background-position:0px -1px; 
+	background-position:0px -1px;
 }
 
 .swbform legend {
@@ -570,19 +570,19 @@ th {
     margin: 0;
     padding: 0;
 }
-	
+
 .swbform fieldset fieldset {
     border: none;
     padding: 0px 25px 0px 0px;
     background: none;
 }
-	
+
 /*.swbform fieldset fieldset legend {
     width: 25%;
     text-align: right;
 	font-weight: normal;
 }*/
-	
+
 /*.swbform fieldset fieldset label {
 	display: block;
 	width: auto;
@@ -593,10 +593,10 @@ th {
 
 /*.swbform fieldset span label {
     width: auto;
-    padding: 0px 10px 0px 0px;  
-	_display: block;            
-    _margin-left: 25.5%;        
-    _text-align: left;         
+    padding: 0px 10px 0px 0px;
+	_display: block;
+    _margin-left: 25.5%;
+    _text-align: left;
 	}*/
 
 .swbform em {
@@ -725,12 +725,12 @@ th {
 div.sitesectiontree a.treeres:link {
 	text-decoration:none;
 	font-weight: normal;
-	cursor: pointer;	
+	cursor: pointer;
 }
 div.sitesectiontree a.treeres:visited {
 	text-decoration:none;
 	font-weight: normal;
-	cursor: pointer;	
+	cursor: pointer;
 }
 div.sitesectiontree a.treeres:hover {
 	text-decoration: underline;
