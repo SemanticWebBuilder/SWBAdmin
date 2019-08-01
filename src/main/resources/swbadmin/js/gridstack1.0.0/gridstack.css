@@ -410,22 +410,22 @@ https://mexicana.cultura.gob.mx/swbadmin/js/dojo/dijit/themes/soria/images/butto
 
 /*NuEVOS*/
 
-.templetebuilder { padding:20px; background:#FFF}   
-        
+.templetebuilder { padding:20px; background:#FFF}
+
 .templetebuilder button { border:solid 1px #8ba0bd; border-bottom:solid 1px #657c9c; width:100%; padding:17px 10px;}
-        
-.templetebuilder button { background:url(https://mexicana.cultura.gob.mx/swbadmin/js/dojo/dijit/themes/soria/images/buttonEnabled.png);}
-.templetebuilder button:hover { background:url(https://mexicana.cultura.gob.mx/swbadmin/js/dojo/dijit/themes/soria/images/buttonHover.png);}
-.templetebuilder button:acrtive { background:url(https://mexicana.cultura.gob.mx/swbadmin/js/dojo/dijit/themes/soria/images/buttonActive.png);}
-        
-        
+
+.templetebuilder button { background:url(/swbadmin/js/dojo/dijit/themes/soria/images/buttonEnabled.png);}
+.templetebuilder button:hover { background:url(/swbadmin/js/dojo/dijit/themes/soria/images/buttonHover.png);}
+.templetebuilder button:acrtive { background:url(/swbadmin/js/dojo/dijit/themes/soria/images/buttonActive.png);}
+
+
 .bigArea { min-height: 300px;}
 #workGrid { background:#f3f3f3; min-height: 250px; border:solid 2px #a0a0ff; box-sizing:initial;}
-.templetebuilder .sidebar  { display:flex; flex-direction:column; align-content:center; justify-content:center } 
+.templetebuilder .sidebar  { display:flex; flex-direction:column; align-content:center; justify-content:center }
 
 .grid-stack-item-menu .grid-stack-item-content span,
 .grid-stack-item-htmlContent .grid-stack-item-content span,
-.grid-stack-item-staticText .grid-stack-item-content span  { 
+.grid-stack-item-staticText .grid-stack-item-content span  {
     font-family:'swbpagebuilder';
     font-size:30px;
     line-height:29px;
@@ -439,28 +439,28 @@ https://mexicana.cultura.gob.mx/swbadmin/js/dojo/dijit/themes/soria/images/butto
 .grid-stack-item-menu .grid-stack-item-content        { background:rgba(140,160,220,1)}
 .grid-stack-item-htmlContent .grid-stack-item-content { background:rgba(140,190,190,1)}
 .grid-stack-item-staticText .grid-stack-item-content  { background:rgba(170,160,190,1)}
-        
+
 .grid-stack-item-removing    { opacity:0.5;}
-        
+
 .trash       { height: 100px; display:flex; justify-content:center; align-items:center; font-size:35px; color:rgba(0,0,0,0.7); transition:all .1s}
 .trash.drop  { font-size:42px; color:rgba(0,0,0,1); }
-        
+
 .tools { background:#e1ebfb; border:solid 1px #b1badf; padding:15px;}
 .sidebar { margin:20px 0}
 .sidebar .grid-stack-item { border:2px dashed #666; z-index:10; margin:10px 0;}
 .sidebar .grid-stack-item .grid-stack-item-content { padding:5px 0 }
 
-.grid-stack-item .grid-stack-item-content { display:flex; justify-content:center; flex-direction:column; align-items:center; text-align:center; cursor:grab; font-size:12px; color:rgba(0,0,0,0.65)} 
+.grid-stack-item .grid-stack-item-content { display:flex; justify-content:center; flex-direction:column; align-items:center; text-align:center; cursor:grab; font-size:12px; color:rgba(0,0,0,0.65)}
 .grid-stack-item .grid-stack-item-content:active { cursor:grabbing}
-        
+
 .grid-stack > .grid-stack-item > .grid-stack-item-content { display:flex; align-items:center; justify-content:center;}
 
 .grid-stack > .grid-stack-item > .ui-resizable-se,
 .grid-stack > .grid-stack-item > .ui-resizable-sw { background-image:none; transform:rotate(90deg)}
 
 .grid-stack > .grid-stack-item > .ui-resizable-se:after,
-.grid-stack > .grid-stack-item > .ui-resizable-sw:after { 
-    content:"\e096"; 
+.grid-stack > .grid-stack-item > .ui-resizable-sw:after {
+    content:"\e096";
     color:rgba(0,0,0,0.3);
     font-size:18px;
     position:relative;
@@ -473,30 +473,99 @@ https://mexicana.cultura.gob.mx/swbadmin/js/dojo/dijit/themes/soria/images/butto
     line-height:1;
     -webkit-font-smoothing:antialiased;}
 
-/*ICONOS: Menu, HTMLContent, StaticText*/
-@font-face {
-  font-family:'swbpagebuilder';
-  src:  url('../font-swbpagebuilder/swbpagebuilder.eot?rm932b');
-  src:  url('../font-swbpagebuilder/swbpagebuilder.eot?rm932b#iefix') format('embedded-opentype'),
-        url('../font-swbpagebuilder/swbpagebuilder.ttf?rm932b') format('truetype'),
-        url('../font-swbpagebuilder/swbpagebuilder.woff?rm932b') format('woff'),
-        url('../font-swbpagebuilder/swbpagebuilder.svg?rm932b#swbpagebuilder') format('svg');
+.ctxtmenu {
+    width: 12rem;
+    height: 4.5rem;
+    background-color: #f4f4f4;
+    color: #333;
+    border: 1px solid #aaa;
+    box-shadow: 2px 2px 2px #999;
+    border-radius: 0.2rem;
+    list-style: none;
+    position: fixed;
+    padding: 0 0 0 20px;
+}
+.ctxtmenu.off {
+    top: -200%;
+    left: -200%;
+}
+.ctxtmenu-item {
+    height: 1.5rem;
+    line-height: 1.5rem;
+    font-size: 1rem;
+    font-weight: 100;
+    /*padding: 0 1rem;*/
+    cursor: pointer;
+}
+.ctxtmenu-item:hover, .ctxtmenu-item:active {
+    color: #000;
+    background-color: #e1ebfb;
+    font-weight: 500;
 }
 
 
 
+.modalW {
+  display: none;
+  position: fixed;
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(256, 256, 256);
+  background-color: rgba(256, 256, 256, 0.5);
+  z-index: 100;
+}
+.modalW-header {
+  padding: 0 10px 0 10px;
+}
+.modalW-dialog {
+  width: 90%;
+  height: 95%;
+  margin: auto;
+  border: 2px solid navy;
+  border-radius: 10px;
+  background-color: rgb(256, 256, 256);
+}
+.modalW-content {
+  position: relative;
+  background-color: white;
+  padding: 0px;
+  width: 100%;
+  overflow:auto;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+.close-btn {
+  float: right;
+  color: lightgray;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: default;
+}
+.close-btn:hover {
+  color: black;
+}
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+/*ICONOS: Menu, HTMLContent, StaticText*/
+@font-face {
+  font-family:'swbpagebuilder';
+  src:  url('/swbadmin/js/gridstack1.0.0/font-swbpagebuilder/swbpagebuilder.eot?rm932b');
+  src:  url('/swbadmin/js/gridstack1.0.0/font-swbpagebuilder/swbpagebuilder.eot?rm932b#iefix') format('embedded-opentype'),
+        url('/swbadmin/js/gridstack1.0.0/font-swbpagebuilder/swbpagebuilder.ttf?rm932b') format('truetype'),
+        url('/swbadmin/js/gridstack1.0.0/font-swbpagebuilder/swbpagebuilder.woff?rm932b') format('woff'),
+        url('/swbadmin/js/gridstack1.0.0/font-swbpagebuilder/swbpagebuilder.svg?rm932b#swbpagebuilder') format('svg');
+}
