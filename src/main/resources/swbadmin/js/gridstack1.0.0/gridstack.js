@@ -883,20 +883,30 @@
                 .on(trashZone, 'dropover', function(event, ui) {
                     var el = $(ui.draggable);
                     var node = el.data('_gridstack_node');
-                    if (node._grid !== self) {
-                        return;
+                    if (node !== undefined) {
+                        if ($(self.opts.removable) !== undefined) {
+                          $(self.opts.removable).addClass('drop');
+                        }
+                        if (node._grid !== self) {
+                            return;
+                        }
+                        el.data('inTrashZone', true);
+                        self._setupRemovingTimeout(el);
                     }
-                    el.data('inTrashZone', true);
-                    self._setupRemovingTimeout(el);
                 })
                 .on(trashZone, 'dropout', function(event, ui) {
                     var el = $(ui.draggable);
                     var node = el.data('_gridstack_node');
-                    if (node._grid !== self) {
-                        return;
+                    if (node !== undefined) {
+                        if ($(self.opts.removable) !== undefined) {
+                            $(self.opts.removable).removeClass('drop');
+                        }
+                        if (node._grid !== self) {
+                            return;
+                        }
+                        el.data('inTrashZone', false);
+                        self._clearRemovingTimeout(el);
                     }
-                    el.data('inTrashZone', false);
-                    self._clearRemovingTimeout(el);
                 });
         }
 

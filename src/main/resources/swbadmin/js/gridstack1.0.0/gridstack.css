@@ -474,36 +474,48 @@ https://mexicana.cultura.gob.mx/swbadmin/js/dojo/dijit/themes/soria/images/butto
     -webkit-font-smoothing:antialiased;}
 
 .ctxtmenu {
-    width: 12rem;
-    height: 4.5rem;
-    background-color: #f4f4f4;
-    color: #333;
-    border: 1px solid #aaa;
-    box-shadow: 2px 2px 2px #999;
+    width:auto /*13rem*/;
+    height:auto /*4.5rem*/; 
+    background-color: #fff;
+    color: #243c5f;
+    border: 1px solid #cbcbcb;
+    box-shadow:3px 3px 5px rgba(0,0,0,0.3);
     border-radius: 0.2rem;
     list-style: none;
     position: fixed;
-    padding: 0 0 0 20px;
+    padding:0;
 }
-.ctxtmenu.off {
-    top: -200%;
-    left: -200%;
-}
+.ctxtmenu.off { top: -200%; left: -200%;}
 .ctxtmenu-item {
-    height: 1.5rem;
-    line-height: 1.5rem;
-    font-size: 1rem;
-    font-weight: 100;
-    /*padding: 0 1rem;*/
+    height:1.7rem;
+    line-height:1.5rem;
+    font-size:13.5px;
+    font-weight:100;
+    padding:0 5px 0 0;
     cursor: pointer;
 }
-.ctxtmenu-item:hover, .ctxtmenu-item:active {
-    color: #000;
-    background-color: #e1ebfb;
-    font-weight: 500;
+
+
+.ctxtmenu-item:hover, 
+.ctxtmenu-item:active { background-color:#d9e6f9; font-weight:500;}
+
+/*roger*/
+li#resAdm:before    { content:"\e136";}
+li#dispOptns:before { content:"\e120";}
+li#resAdmTest:before { content:"\e235";}
+
+.ctxtmenu li:before {
+    font-family:'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    display: inline-block;
+    position: relative;
+    width:25px;
+    text-align: center;
+    color: #257ec2;
+    font-size:15px;
+    top:2px;
 }
-
-
 
 .modalW {
   display: none;
@@ -513,41 +525,59 @@ https://mexicana.cultura.gob.mx/swbadmin/js/dojo/dijit/themes/soria/images/butto
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgb(256, 256, 256);
-  background-color: rgba(256, 256, 256, 0.5);
+  background-color:rgba(256,256,256,0.6);
   z-index: 100;
 }
 .modalW-header {
-  padding: 0 10px 0 10px;
+    background:url(/swbadmin/js/dojo/dijit/themes/soria/images/titleBar.png) repeat-x top left;
+    padding:5px 6px 3px 25px;
+    outline: 0;
 }
-.modalW-dialog {
-  width: 90%;
-  height: 95%;
-  margin: auto;
-  border: 2px solid navy;
-  border-radius: 10px;
-  background-color: rgb(256, 256, 256);
-}
-.modalW-content {
-  position: relative;
-  background-color: white;
-  padding: 0px;
-  width: 100%;
-  overflow:auto;
-  -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.4s;
-  animation-name: animatetop;
-  animation-duration: 0.4s;
-}
+
+.modalW-dialog, 
+.modalDisp-dialog  {
+    margin:auto;
+    border:1px solid #cbcbcb;
+    border-radius:0px;
+    background-color: rgb(256, 256, 256);
+    box-shadow:0 5px 10px #adadad; }
+.modalW-dialog     { width:90%; height:95%;}
+.modalDisp-dialog  { width:50%; /*height:45%;*/}
+.modalW-content,
+.modalDisp-content {
+    position:relative;
+    background-color:white;
+    width:100%;
+    overflow:auto;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;}
+.modalW-content    { padding:20px 0px}
+.modalDisp-content { padding:20px 15px;}
+.modalDisp-content form div    { margin-bottom:10px }
+.modalDisp-content form label  { display:inline-block; width:180px}
+.modalDisp-content .modal-text { padding-left:0px }
+
+.modalDisp-content button {
+    border: 1px solid #8ba0bd;
+    border-bottom: 1px solid #657c9c;
+    padding:0.3em 0.4em;
+    background: #bcd5f0 url(/swbadmin/js/dojo/dijit/themes/soria/images/buttonEnabled.png) repeat-x top left;}
+
+
 .close-btn {
   float: right;
-  color: lightgray;
+  color: #666;
   font-size: 30px;
-  font-weight: bold;
   cursor: default;
 }
 .close-btn:hover {
   color: black;
+}
+.modal-text {
+  padding: 10px 5px 10px 5px;
+  font-size: 1.2rem;
 }
 @-webkit-keyframes animatetop {
   from {top:-300px; opacity:0}
@@ -557,7 +587,9 @@ https://mexicana.cultura.gob.mx/swbadmin/js/dojo/dijit/themes/soria/images/butto
   from {top:-300px; opacity:0}
   to {top:0; opacity:1}
 }
-
+.modalDisp-content input:invalid {
+  box-shadow: 0 0 5px 1px red;
+}
 
 
 /*ICONOS: Menu, HTMLContent, StaticText*/

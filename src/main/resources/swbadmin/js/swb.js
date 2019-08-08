@@ -178,6 +178,24 @@ function showDialog(url, title)
     });
 }
 
+function showDialogById(url, title, id)
+{
+    dojo.xhrGet({
+        url: url,
+        load: function(response, ioArgs) {
+            dijit.byId(id + '').show();
+            dijit.byId(id + 'Imp').attr('content', response);            
+            dijit.byId(id).titleNode.innerHTML = title;
+            return response;
+        },
+        error: function(response, ioArgs) {
+            showStatus('Error:' + response);
+            return response;
+        },
+        handleAs: "text"
+    });
+}
+
 function showDialog2(url, title)
 {
     dojo.xhrGet({
@@ -206,6 +224,13 @@ function setDialogTitle(title)
 function hideDialog()
 {
     dijit.byId('swbDialog').hide();
+}
+
+function hideDialogById(id)
+{
+//    console.log('dialog id:' + id)
+    var dijitObj = dijit.byId(id + '');
+    dijitObj.hide();
 }
 
 function getContentPanel(reference)
@@ -252,6 +277,11 @@ function submitUrl(url, reference)
         },
         handleAs: "text"
     });
+}
+
+function submitUrlToFrame(url, reference)
+{
+    window.location = url;
 }
 
 function submitForm(formid)
@@ -574,6 +604,16 @@ function reloadTab(uri)
         {
             arr[n].refresh();
         }
+    }
+}
+
+function reloadFrame(url) {
+    console.log("URL recibido: " + url);
+    console.log("URL en frame: " + window.location);
+    if (!window.location.href.endsWith(url)) {
+        window.location.href = url;
+    } else {
+        window.location.reload();
     }
 }
 
