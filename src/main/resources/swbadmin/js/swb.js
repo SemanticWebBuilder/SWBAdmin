@@ -228,7 +228,6 @@ function hideDialog()
 
 function hideDialogById(id)
 {
-//    console.log('dialog id:' + id)
     var dijitObj = dijit.byId(id + '');
     dijitObj.hide();
 }
@@ -608,8 +607,6 @@ function reloadTab(uri)
 }
 
 function reloadFrame(url) {
-    console.log("URL recibido: " + url);
-    console.log("URL en frame: " + window.location);
     if (!window.location.href.endsWith(url)) {
         window.location.href = url;
     } else {
