@@ -555,8 +555,9 @@ li#resAdmTest:before { content:"\e235";}
     animation-duration: 0.4s;}
 .modalW-content    { padding:20px 0px}
 .modalDisp-content { padding:20px 15px;}
-.modalDisp-content form div    { margin-bottom:10px }
-.modalDisp-content form label  { display:inline-block; width:180px}
+.modalDisp-content form div        { margin-bottom:10px }
+.modalDisp-content form label      { display:inline-block; width:180px}
+.modalDisp-content form label span { float:right}
 .modalDisp-content .modal-text { padding-left:0px }
 
 .modalDisp-content button {
